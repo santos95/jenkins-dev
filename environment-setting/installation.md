@@ -61,14 +61,17 @@ docker --version
 sudo docker run hello-world
 
 # 8. (Optional) Run Docker without sudo
+## add the current user to the docker group 
 sudo usermod -aG docker $USER
+## refresh group
 newgrp docker
+## test docker command
 docker run hello-world
 
 # install jenkins with docker
 ## to check where are the data of docker like images and the size
 docker info | grep -i root
-sudo dh -sh /var/lib/docker
+sudo du -sh /var/lib/docker
 
 
 1. Prerequisites
@@ -130,3 +133,11 @@ Paste the initial admin password
 Install suggested plugins
 
 Create your admin user
+
+# Install jenkins with docker on linux 
+## pull latest jenkins image
+docker pull jenkins/jenkins:jdk21
+
+## to check where are the data of docker like images and the size
+docker info | grep -i root
+sudo du -sh /var/lib/docker
